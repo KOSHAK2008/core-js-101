@@ -220,7 +220,7 @@ function isPrime(n) {
   } if (n === 2) {
     return true;
   }
-  for (let x = 2; x < n; x++) {
+  for (let x = 2; x < n; x += 1) {
     if (n % x === 0) {
       return false;
     }
