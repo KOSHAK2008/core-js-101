@@ -55,8 +55,20 @@ function getFizzBuzz(num) {
  *   5  => 120
  *   10 => 3628800
  */
-function getFactorial(/* n */) {
-  throw new Error('Not implemented');
+function getFactorial(n) {
+  let answer = 1;
+  // eslint-disable-next-line no-use-before-define, no-undef
+  factorial(n);
+  // eslint-disable-next-line no-unused-vars, consistent-return
+  function factorial(num) {
+    if (num === 0 || num === 1) return answer;
+    answer *= num;
+    // eslint-disable-next-line no-param-reassign
+    num -= 1;
+    factorial(num);
+  }
+  return answer;
+  // throw new Error('Not implemented');
 }
 
 
@@ -72,8 +84,20 @@ function getFactorial(/* n */) {
  *   5,10  =>  45 ( = 5+6+7+8+9+10 )
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
-function getSumBetweenNumbers(/* n1, n2 */) {
-  throw new Error('Not implemented');
+function getSumBetweenNumbers(n1, n2) {
+  let answer = n1;
+  // eslint-disable-next-line no-use-before-define, no-undef
+  sumNumber(n2);
+  // eslint-disable-next-line no-unused-vars, consistent-return
+  function sumNumber(num) {
+    if (num === n1) return answer;
+    answer += num;
+    // eslint-disable-next-line no-param-reassign
+    num -= 1;
+    sumNumber(num);
+  }
+  return answer;
+  // throw new Error('Not implemented');
 }
 
 
