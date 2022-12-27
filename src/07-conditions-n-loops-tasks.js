@@ -27,8 +27,20 @@
  *  21 => 'Fizz'
  *
  */
-function getFizzBuzz(/* num */) {
-  throw new Error('Not implemented');
+// eslint-disable-next-line consistent-return
+function getFizzBuzz(num) {
+  if (num % 3 === 0 && num % 5 === 0) {
+    // eslint-disable-next-line no-param-reassign
+    return 'FizzBuzz';
+  } if (num % 3 === 0) {
+    // eslint-disable-next-line no-param-reassign
+    return 'Fizz';
+  } if (num % 5 === 0) {
+    // eslint-disable-next-line no-param-reassign
+    return 'Buzz';
+  }
+  return num;
+  // throw new Error('Not implemented');
 }
 
 
