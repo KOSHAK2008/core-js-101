@@ -55,8 +55,12 @@ function parseDataFromIso8601(value) {
  *    Date(2012,1,1)    => true
  *    Date(2015,1,1)    => false
  */
-function isLeapYear(/* date */) {
-  throw new Error('Not implemented');
+// eslint-disable-next-line consistent-return
+function isLeapYear(date) {
+  const year = date.getFullYear();
+  // eslint-disable-next-line no-mixed-operators
+  return ((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0);
+  // throw new Error('Not implemented');
 }
 
 
@@ -75,14 +79,13 @@ function isLeapYear(/* date */) {
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,10,0,0,250)     => "00:00:00.250"
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
  */
-function timeSpanToString(/* startDate, endDate */) {
-  // const time = Date.parse(endDate) - Date.parse(startDate);
-  // const hours = (time / (1000 * 3600)) % 24;
-  // const minutes = (time / 1000 / 60) % 60;
-  // const seconds = (time / 1000) % 60;
-  // const miliseconds = time % 1000;
-  // return `0${hours}:${minutes}:${seconds}.${miliseconds}`;
-  throw new Error('Not implemented');
+function timeSpanToString(startDate, endDate) {
+  const time = endDate - startDate;
+  const hours = Math.trunc((time / 3600000) % 100).toString().padStart(2, '0');
+  const minutes = Math.trunc((time / 60000) % 60).toString().padStart(2, '0');
+  const seconds = Math.trunc((time / 1000) % 60).toString().padStart(2, '0');
+  const miliseconds = Math.trunc(time % 1000).toString().padStart(3, '0');
+  return `${hours}:${minutes}:${seconds}.${miliseconds}`;
 }
 
 
@@ -102,8 +105,16 @@ function timeSpanToString(/* startDate, endDate */) {
  *    Date.UTC(2016,3,5,18, 0) => Math.PI
  *    Date.UTC(2016,3,5,21, 0) => Math.PI/2
  */
-function angleBetweenClockHands(/* date */) {
-  throw new Error('Not implemented');
+function angleBetweenClockHands(date) {
+  const hour = Math.trunc((date / 3600000) % 12);
+  const minutes = Math.trunc((date / 60000) % 60);
+  let angleHours = (0.5 * (hour * 60 + minutes));
+  // eslint-disable-next-line no-const-assign
+  if (angleHours > 180 && angleHours < 271) { angleHours -= 180; }
+  const angleMinutes = 6 * minutes;
+  // eslint-disable-next-line no-mixed-operators
+  return (Math.abs(angleHours - angleMinutes) * Math.PI / 180);
+  // throw new Error('Not implemented');
 }
 
 
