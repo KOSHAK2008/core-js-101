@@ -215,15 +215,12 @@ function extractEmails(str) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(/* width, height */) {
-  throw new Error('Not implemented');
-  // let arr = []
-  // if (height === width) return null
-  // while (height > 0 && width > 0) {
-  //   arr.push(height > width ? width : height)
-  //   height > width ? height -= width : width -= height
-  // }
-  // return arr
+function getRectangleString(width, height) {
+  const top = `┌${'─'.repeat(width - 2)}┐`;
+  const middle = `│${' '.repeat(width - 2)}│\n`;
+  const bottom = `└${'─'.repeat(width - 2)}┘`;
+  return (`${top}\n${middle.repeat(height - 2)}${bottom}\n`);
+  // throw new Error('Not implemented');
 }
 
 
