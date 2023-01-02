@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* *********************************************************************************************
  *                                                                                             *
  * Please read the following tutorial before implementing tasks:                                *
@@ -23,7 +24,16 @@
  *   getComposition(Math.sin, Math.asin)(x) => Math.sin(Math.asin(x))
  *
  */
+// eslint-disable-next-line no-unused-vars
 function getComposition(/* f, g */) {
+  // eslint-disable-next-line no-shadow, no-unused-vars
+  // function compose() {
+  //   f(x) {return g(x);
+  //   };
+  // }
+  // return compose()();
+  // eslint-disable-next-line no-undef, no-shadow
+  // return (f) => (g) => (x) => f(g(x));
   throw new Error('Not implemented');
 }
 

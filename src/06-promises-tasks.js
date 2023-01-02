@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* ************************************************************************************************
  *                                                                                                *
  * Please read the following tutorial before implementing tasks:                                   *
@@ -29,6 +30,9 @@
  *                                                    //  Ask her again.';
  */
 function willYouMarryMe(/* isPositiveAnswer */) {
+  // Promise.resolve(isPositiveAnswer).then(
+  //   (v) => 'Hooray!!! She said "Yes"!',
+  //   (e) => 'Oh no, she said "No".',
   throw new Error('Not implemented');
 }
 
